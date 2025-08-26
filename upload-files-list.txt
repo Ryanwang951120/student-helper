@@ -1,0 +1,49 @@
+📦 學生助手 - 上傳檔案清單
+
+✅ 必須上傳到 GitHub 的檔案：
+
+📁 根目錄檔案：
+├── index.html ✅
+├── package.json ✅
+├── package-lock.json ✅
+├── vite.config.js ✅
+├── vercel.json ✅
+├── README.md ✅
+└── deployment-guide.md ✅
+
+📁 src/ 資料夾：
+├── App.jsx ✅
+├── index.css ✅
+├── main.jsx ✅
+├── components/
+│   ├── PWAInstallPrompt.jsx ✅
+│   └── StatisticsChart.jsx ✅
+└── hooks/
+    └── useNotifications.js ✅
+
+📁 public/ 資料夾：
+└── (如果有圖示檔案) ✅
+
+❌ 不要上傳：
+├── node_modules/ ❌ (太大，Vercel 會自動安裝)
+├── dist/ ❌ (建構時自動生成)
+├── .vscode/ ❌ (編輯器設定檔)
+├── .github/ ❌ (除非需要 GitHub Actions)
+└── 任何 .env 檔案 ❌
+
+🚀 快速上傳方式：
+
+方式一：批次上傳
+1. 選擇所有 ✅ 標記的檔案和資料夾
+2. 壓縮成 ZIP 檔案
+3. 在 GitHub 儲存庫上傳 ZIP
+
+方式二：拖拽上傳
+1. 開啟 GitHub 儲存庫頁面
+2. 點擊 "Add files" → "Upload files"
+3. 將 ✅ 檔案拖拽到上傳區域
+
+⚠️ 重要提醒：
+- 保持資料夾結構完整
+- 確保 src/ 下的所有檔案都有上傳
+- vercel.json 是部署關鍵檔案，務必上傳
