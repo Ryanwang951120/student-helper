@@ -1,8 +1,6 @@
-const CACHE_NAME = 'timetable-app-v1';
+const CACHE_NAME = 'student-helper-v1';
 const urlsToCache = [
   '/',
-  '/static/js/bundle.js',
-  '/static/css/main.css',
   '/manifest.json'
 ];
 
@@ -26,9 +24,19 @@ self.addEventListener('fetch', (event) => {
         if (response) {
           return response;
         }
-        return fetch(event.request);
-      }
-    )
+        
+        // 對於導航請求，總是返回 index.html（SPA 路由支援）
+        if (event.request.mode === 'navigate') {
+          return fetch('/').catch(() => caches.match('/'));
+        }
+        
+        return fetch(event.request).catch(() => {
+          // 網路失敗時的後備方案
+          if (event.request.destination === 'document') {
+            return caches.match('/');
+          }
+        });
+      })
   );
 });
 
